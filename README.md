@@ -24,8 +24,7 @@ char *strchr_brkrep( char *s, size_t len, char c, const char accept256[] );
 **Return Values**
 
 On success, the functions `strchr_brk()` and `strchr_brkrep()` return a pointer to the located `c`.
-If the `c` does not appear in the string, or the unacceptable character appears in the string, these functions returns NULL.
-
+If the `c` does not appear in the string it returns a NULL, or if the unacceptable character appears in the string returns a pointer to the located illegal character and set an EILSEQ to errno.
 
 **Errors**
 
