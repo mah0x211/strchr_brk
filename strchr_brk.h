@@ -31,7 +31,7 @@
 #include <errno.h>
 
 static inline char *strchr_brk( char *s, size_t len, char c, 
-                                const char accept256[] )
+                                const unsigned char accept256[] )
 {
     unsigned char *p = (unsigned char*)s;
     size_t i = 0;
@@ -54,7 +54,7 @@ static inline char *strchr_brk( char *s, size_t len, char c,
 
 
 static inline char *strchr_brkrep( char *s, size_t len, char c, 
-                                   const char accept256[] )
+                                   const unsigned char accept256[] )
 {
     unsigned char *p = (unsigned char*)s;
     size_t i = 0;
@@ -70,7 +70,7 @@ static inline char *strchr_brkrep( char *s, size_t len, char c,
             errno = EILSEQ;
             return (void*)(p + i);
         }
-        p[i] = (unsigned char)accept256[p[i]];
+        p[i] = accept256[p[i]];
     }
     
     return NULL;
