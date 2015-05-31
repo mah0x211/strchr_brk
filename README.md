@@ -8,9 +8,9 @@ locate character in string while verify with the characters table.
 ```c
 #include "strchr_brk.h"
 
-char *strchr_brk( char *s, size_t len, char c, const char accept256[] );
+char *strchr_brk( char *s, size_t len, char c, const unsigned char accept256[] );
 
-char *strchr_brkrep( char *s, size_t len, char c, const char accept256[] );
+char *strchr_brkrep( char *s, size_t len, char c, const unsigned char accept256[] );
 ```
 
 **Parameters**
@@ -46,7 +46,7 @@ set the EILSEQ into the external variable errno if failed to The function `strch
 #define HT      '\t'
 #define COLON   ':'
 
-static const char HEADER_NAME_CHR[256] = {
+static const unsigned char HEADER_NAME_CHR[256] = {
 //  0  1  2  3  4  5  6  7  8 HT LF 11 12 CR 14 15 16 17 18 19 20 21 22 23 24
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 //  25 26 27 28 29 30 31 
@@ -70,7 +70,7 @@ static const char HEADER_NAME_CHR[256] = {
 };
 
 
-static const char HEADER_VAL_CHR[256] = {
+static const unsigned char HEADER_VAL_CHR[256] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, HT, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 0, 0, 
     SP, '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', 
